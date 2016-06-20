@@ -1,5 +1,5 @@
 <ul>
 	{% for event in all_events %}
-	<li><a href="/history/{{event.id}}/">{{ event.place }}</a></li>
+	<li><a href="{% url 'history:detail' event.id %}">{{ event.place }}</a></li>
 	{% endfor %}
 </ul>

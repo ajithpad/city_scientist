@@ -1,0 +1,25 @@
+<img src = url("{{event.picture}}")>
+
+<h1> {{event.place}} </h1>
+<h3> {{event.year}} </h3>
+
+{% if error_message %}
+	<p>error message </p>
+{% endif %}
+
+<form action="{% url 'history:favorite' event.id %}" method = "post">
+	{% csrf_token %}
+	{% for story in event.stories_set.all %}
+		<input type="radio" id="story {{ forloop.counter }}" name= "story" value="{{story.id}}" />
+		<label for= "story {{ forloop.counter }}">
+			{{ story.genre }}
+			{% if story.is_favorite %}
+				<img src="http://i.imgur.com/b9b13Rd.png"/>
+			{% endif %}
+		</label><br>
+
+	{% endfor %} 
+	<input type="submit" value="Favorite" />
+
+</form>
+
