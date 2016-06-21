@@ -1,3 +1,7 @@
+<!-- Loads the path to static files -->
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'history/style.css'  %}" />
+
 <ul>
 	{% for event in all_events %}
 	<li><a href="{% url 'history:detail' event.id %}">{{ event.place }}</a></li>

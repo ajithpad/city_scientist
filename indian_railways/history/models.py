@@ -6,7 +6,7 @@ from django.db import models
 class Events(models.Model):
 	place = models.CharField(max_length = 100)
 	year = models.CharField(max_length = 4)
-	picture =  models.CharField(max_length = 1000)
+	picture =  models.FileField()
 
 	def __str__(self):
 		return self.place +' in '+ self.year
