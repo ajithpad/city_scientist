@@ -15,3 +15,7 @@ class DataList(APIView):
 
 	def post(self):
 		pass
+
+	def index(request):
+		template = loader.get_template('history/index.html')
+		return render(request, 'visir/index.html')
